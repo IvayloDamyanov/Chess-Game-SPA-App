@@ -1,7 +1,6 @@
 class Piece{
-    constructor(color, type, posX, posY){
+    constructor(color, posX, posY){
         this.color = color;
-        this.type = type;
         this.posX = posX;
         this.posY = posY;
     }
@@ -11,30 +10,10 @@ class Piece{
     }
 
     set color(value){
-        if (!(value === "white" || value === "black")){
+        if (!(value == "white" || value == "black")){
             throw Error("invalid color");
         }
         this._color = value;
-    }
-
-    get type() {
-        return this._type;
-    }
-
-    set type(value){
-        function checkType(value){
-            let types = ["Pawn","Knight","Bishop","Rook","Queen","King"];
-            for(let i = 0; i < types.length; i += 1){
-                if(value === types[i]){
-                    return true;
-                }
-            }
-            return false;
-        }
-        if (!checkType(value)){
-            throw new Error("Invalid piece type");
-        }
-        this._type = value;
     }
 
     get posX(){
@@ -64,10 +43,77 @@ class Piece{
         }
         this._posY = value;
     }
+
+    get moves(){
+        return this._moves;
+    }
+
+    set moves(value){
+        if (typeof(value) !== "object"){
+            throw new Error("List of moves is not an object")
+        }
+        this._moves = value;
+    }
+
+    checkBounds(newX, newY){
+        if(newX < 0 || 7 < newX || newY < 0 || 7 < newY){
+            return false;
+        }
+        return true;
+    }
+
+    checkMove(newX, newY, moves){
+        let xMove = newX - this.posX;
+        let yMove = newY - this.posY;
+        for(let i = 0; i < moves.length; i += 1){
+            if(moves[i][0] == xMove && moves[i][1] == yMove){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
-//var p = new Piece("white", "King", 1, 1);
+class King extends Piece{
+    constructor(color, posX, posY){
+        super(color, posX, posY);
+            this.moves = [
+                [-1, -1],
+                [0, -1],
+                [1, -1],
+                [1, 0],
+                [1, 1],
+                [0, 1],
+                [-1, 1],
+                [-1, 0]
+            ];
+            this.type = "King";
+    }
 
-// class Pawn extends Piece(){
-    
-// }
+    get type() {
+        return this._type;
+    }
+
+    set type(value){
+        if (value !== "King"){
+            throw new Error("Not a King piece type");
+        }
+        this._type = value;
+    }
+
+    move(board, newX, newY){
+        if((typeof(board[newX, newY]) !== "undefined") && board[newX, newY].color === this.color){
+            return false;
+        }
+
+        if(!(super.checkBounds(newX, newY))){
+            return false;
+        }
+
+        if(!(super.checkMove(newX, newY, this.moves))){
+            return false;
+        }
+        
+        return true;
+    }    
+}
