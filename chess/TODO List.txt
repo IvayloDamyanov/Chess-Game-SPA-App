@@ -14,4 +14,4 @@
 14. Bishop logic implementation - Ivo
 15. Queen logic implementation - Ivo
 16. King logic implementation - Ivo
-17. Board matrix implementation
+17. Board matrix implementation - Ivo
