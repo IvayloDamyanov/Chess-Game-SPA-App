@@ -133,3 +133,64 @@ class King extends Piece{
         return true;
     }    
 }
+
+class Knight extends Piece{
+    constructor(color, posX, posY){
+        super(color, posX, posY);
+        this.moves = [
+            [-1, -2],
+            [-2, -1],
+            [-2, 1],
+            [-1, 2],
+            [1, 2],
+            [2, 1],
+            [2, -1],
+            [1, -2]
+        ];
+        this.type = "Knight";
+        this.isMoved = false;
+    }
+
+    get moves(){
+        return this._moves;
+    }
+
+    set moves(value){
+        this._moves = value;
+    }
+
+    get type() {
+        return this._type;
+    }
+
+    set type(value){
+        if (value !== "Knight"){
+            throw new Error("Not a Knight piece type");
+        }
+        this._type = value;
+    }
+
+    get isMoved(){
+        return this._isMoved;
+    }
+
+    set isMoved(value){
+        this._isMoved = value;
+    }
+
+    move(board, newX, newY){
+        if((typeof(board[newX, newY]) !== "undefined") && board[newX, newY].color === this.color){
+            return false;
+        }
+
+        if(!(super.checkBounds(newX, newY))){
+            return false;
+        }
+
+        if(!(super.checkMove(newX, newY, this.moves))){
+            return false;
+        }
+
+        return true;
+    }
+}
