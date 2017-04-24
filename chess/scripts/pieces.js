@@ -24,7 +24,7 @@ class Piece{
         if (typeof(value) != "number"){
             throw new Error("posX is not a number");
         }
-        if ((value < 1 || 8 < value) || value%1 !== 0){
+        if ((value < 0 || 7 < value) || value%1 !== 0){
             throw new Error("invalid posX value");
         }
         this._posX = value;
@@ -38,7 +38,7 @@ class Piece{
         if (typeof(value) != "number"){
             throw new Error("posY is not a number");
         }
-        if ((value < 1 || 8 < value) || value%1 !== 0){
+        if ((value < 0 || 7 < value) || value%1 !== 0){
             throw new Error("invalid posY value");
         }
         this._posY = value;
@@ -78,14 +78,14 @@ class King extends Piece{
     constructor(color, posX, posY){
         super(color, posX, posY);
             this.moves = [
-                [-1, -1],
                 [0, -1],
                 [1, -1],
                 [1, 0],
                 [1, 1],
                 [0, 1],
                 [-1, 1],
-                [-1, 0]
+                [-1, 0],
+                [-1, -1]
             ];
             this.type = "King";
             this.isMoved = false;
@@ -148,7 +148,6 @@ class Knight extends Piece{
             [1, -2]
         ];
         this.type = "Knight";
-        this.isMoved = false;
     }
 
     get moves(){
