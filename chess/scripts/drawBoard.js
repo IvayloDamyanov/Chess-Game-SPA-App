@@ -1,4 +1,4 @@
-function drawBoard(pieces) {
+function drawBoard(board) {
 	let $gameCanvas = $('#game-canvas');
 	let $gameCanvasContext = $gameCanvas[0].getContext('2d');
 	let $backgroundImg = $('#background');
@@ -6,12 +6,16 @@ function drawBoard(pieces) {
 	
 	$gameCanvasContext.drawImage($backgroundImg[0], 0, 0);
 	
-	for (var i = 0; i < pieces.length; i += 1){
-		drawPiece(pieces[i]);
+	for (let i = 0; i < board.length; i += 1){
+		for (let j = 0; j < board[i].length; j += 1){
+			if (board[i][j]){
+				drawPiece(board[i][j]);
+			}
+		}
 	}
 
 	function drawPiece(piece){
-		var imgselector = "#"+piece.color+piece.type;
+		let imgselector = "#"+piece.color+piece.type;
 
 		$gameCanvasContext.drawImage(
 			$(imgselector)[0], 
