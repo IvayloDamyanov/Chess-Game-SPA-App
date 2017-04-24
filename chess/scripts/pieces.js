@@ -88,6 +88,14 @@ class King extends Piece{
                 [-1, 0]
             ];
             this.type = "King";
+            this.isMoved = false;
+    }
+    get moves(){
+        return this._moves;
+    }
+
+    set moves(value){
+        this._moves = value;
     }
 
     get type() {
@@ -99,6 +107,14 @@ class King extends Piece{
             throw new Error("Not a King piece type");
         }
         this._type = value;
+    }
+
+    get isMoved(){
+        return this._isMoved;
+    }
+
+    set isMoved(value){
+        this._isMoved = value;
     }
 
     move(board, newX, newY){
