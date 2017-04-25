@@ -1,6 +1,7 @@
 class Board {
     constructor(){
         this.board = [[],[],[],[],[],[],[],[]];
+        this.pieces;
     }
 
     get board(){
@@ -12,7 +13,7 @@ class Board {
     }
 
     initializeBoard(){
-        let pieces = [
+        this.pieces = [
             new King("white", 0, 0),
             new King("white", 1, 1),
             new King("black", 6, 6),
@@ -55,12 +56,28 @@ class Board {
         //     new King("black", 5, 1)
         // ]
         
-        this.populateBoard(pieces);
+        this.pieces.forEach((piece) => this.board[piece.posX][piece.posY] = piece);
     }
 
-    
+    checkField(xCoord, yCoord){
+        if (this.board[xCoord][yCoord]){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    populateBoard(pieces){
-        pieces.forEach((piece) => this.board[piece.posX][piece.posY] = piece);
+    selectPiece(xCoord, yCoord){
+        return this.board[xCoord][yCoord];
+    }
+
+    clearField(xCoord, yCoord){
+        this.board[xCoord][yCoord] = false;
+    }
+
+    movePiece(piece){
+        this.board[piece.posX][piece.posY] = piece;
     }
 }
+
+

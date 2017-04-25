@@ -122,12 +122,10 @@ class King extends Piece{
             return false;
         }
 
-        if(!(super.checkBounds(newX, newY))){
-            return false;
-        }
-
-        if(!(super.checkMove(newX, newY, this.moves))){
-            return false;
+        if(this.checkBounds(newX, newY) && this.checkMove(newX, newY, this.moves)){
+            this.posX = newX;
+            this.posY = newY;
+            console.log("moved to " + this.posX + ", " + this.posY)
         }
         
         return true;
