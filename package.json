@@ -1,0 +1,28 @@
+{
+  "name": "chess-game",
+  "version": "1.0.0",
+  "description": "JavaScript Chess game Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimeonGerginov/Chess-Game-SPA-App.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SimeonGerginov/Chess-Game-SPA-App/issues"
+  },
+  "homepage": "https://github.com/SimeonGerginov/Chess-Game-SPA-App#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "cryptojs": "^2.5.3",
+    "jquery": "^3.2.1",
+    "navigo": "^4.6.2",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21",
+    "systemjs-plugin-text": "0.0.9"
+  }
+}
