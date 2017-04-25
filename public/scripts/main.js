@@ -6,11 +6,22 @@ window.addEventListener('load', function () {
 	drawBoard(gameBoard.board);
 	
 	var $canvas = $('#game-canvas');
+	let selectedPiece;
 
     $canvas.on("click", function(evt) {
         let mousePos = getMousePos($canvas, evt); //mouse position in pixels
 		let selectionCoords = getCoords(mousePos); //returns xPos and yPos of of selection
-		console.log(selectionCoords.x + ", " +selectionCoords.y);
+		if (selectedPiece){
+			let oldX = selectedPiece.posX;
+			let oldY = selectedPiece.posY;
+			selectedPiece.move(gameBoard.board, selectionCoords.x, selectionCoords.y);
+			gameBoard.clearField(oldX, oldY);
+			gameBoard.movePiece(selectedPiece);
+			selectedPiece = false;
+		} else if (gameBoard.checkField(selectionCoords.x, selectionCoords.y)){
+			selectedPiece = gameBoard.selectPiece(selectionCoords.x, selectionCoords.y);
+		}
+
 		
 		drawBoard(gameBoard.board, selectionCoords);
     });
