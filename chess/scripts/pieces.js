@@ -169,14 +169,6 @@ class Knight extends Piece{
         this._type = value;
     }
 
-    get isMoved(){
-        return this._isMoved;
-    }
-
-    set isMoved(value){
-        this._isMoved = value;
-    }
-
     move(board, newX, newY){
         if((typeof(board[newX, newY]) !== "undefined") && board[newX, newY].color === this.color){
             return false;
