@@ -1,28 +1,33 @@
 {
-    "name": "chess-game",
-    "version": "1.0.0",
-    "description": "JavaScript Chess game Application",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/SimeonGerginov/Chess-Game-SPA-App.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/SimeonGerginov/Chess-Game-SPA-App/issues"
-    },
-    "homepage": "https://github.com/SimeonGerginov/Chess-Game-SPA-App#readme",
-    "dependencies": {
-        "bootstrap": "^3.3.7",
-        "cryptojs": "^2.5.3",
-        "jquery": "^3.2.1",
-        "navigo": "^4.6.2",
-        "systemjs": "^0.20.12",
-        "systemjs-plugin-babel": "0.0.21",
-        "systemjs-plugin-text": "0.0.9"
-    }
+  "name": "chess-game-spa-app",
+  "version": "1.0.0",
+  "description": "JavaScript Chess game Application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimeonGerginov/Chess-Game-SPA-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimeonGerginov/Chess-Game-SPA-App/issues"
+  },
+  "homepage": "https://github.com/SimeonGerginov/Chess-Game-SPA-App#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "crypto-js": "^3.1.9-1",
+    "firebase": "^3.9.0",
+    "handlebars": "^4.0.8",
+    "jquery": "^3.2.1",
+    "sammy": "^0.7.6",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21",
+    "toastr": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
 }

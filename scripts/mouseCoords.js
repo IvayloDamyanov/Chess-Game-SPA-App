@@ -6,12 +6,11 @@ function getMousePos($canvas, evt) {
     };
 }
 
-function getCoords (mousePos){
-    xCoord = Math.floor(mousePos.x/64);
-    yCoord = Math.floor(mousePos.y/64);
+function getCoords(mousePos) {
+    xCoord = Math.floor(mousePos.x / 64);
+    yCoord = Math.floor(mousePos.y / 64);
     let coords = {};
     coords.x = xCoord;
     coords.y = yCoord;
     return coords;
 }
-    

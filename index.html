@@ -6,6 +6,8 @@
     <title>Chess game</title>
     <link rel="icon" type="image/gif" href="./images/background.png" />
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./node_modules/toastr/build/toastr.css">
+    <script src="./scripts/main.js"></script>
 </head>
 
 <body>
@@ -28,33 +30,19 @@
     <img src="./images/background.png" id="background" style="display: none" alt="Board">
     <img src="./images/selection.png" id="selection" style="display: none" alt="Selection">
 
-
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
-
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBabfzqdejrbMHcwdYRkBbVh4lrNMRuzWU",
-            authDomain: "chess-game-spa-app.firebaseapp.com",
-            databaseURL: "https://chess-game-spa-app.firebaseio.com",
-            projectId: "chess-game-spa-app",
-            storageBucket: "chess-game-spa-app.appspot.com",
-            messagingSenderId: "75954807318"
-        };
-        firebase.initializeApp(config);
-    </script>
-
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./scripts/main.js"></script>
-
     <!--Maybe load them through main.js using Promise ... after imgs are appended-->
     <script src="./scripts/drawBoard.js"></script>
     <script src="./scripts/pieces.js"></script>
     <script src="./scripts/board.js"></script>
     <script src="./scripts/mouseCoords.js"></script>
+
+    <script src="./node_modules/toastr/toastr.js"></script>
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--Scripts-->
+    <script type="text/javascript" src="./node_modules/systemjs/dist/system.js"></script>
+    <script type="text/javascript" src="./config/system-js-config.js"></script>
 </body>
 
 </html>

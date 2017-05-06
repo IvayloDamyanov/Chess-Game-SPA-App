@@ -1,25 +1,34 @@
 class Board {
-    constructor(){
-        this.board = [[],[],[],[],[],[],[],[]];
+    constructor() {
+        this.board = [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ];
         this.pieces;
     }
 
-    get board(){
+    get board() {
         return this._board;
     }
 
-    set board(value){
+    set board(value) {
         this._board = value;
     }
 
-    initializeBoard(){
+    initializeBoard() {
         this.pieces = [
             new King("white", 0, 0),
             new King("white", 1, 1),
             new King("black", 6, 6),
             new King("black", 7, 7)
         ]
-        
+
         // uncomment the following starting positions when game is ready
         // pieces = [
         //     new Pawn("white", 1, 7),
@@ -55,29 +64,27 @@ class Board {
         //     new Queen("black", 4, 1),
         //     new King("black", 5, 1)
         // ]
-        
+
         this.pieces.forEach((piece) => this.board[piece.posX][piece.posY] = piece);
     }
 
-    checkField(xCoord, yCoord){
-        if (this.board[xCoord][yCoord]){
+    checkField(xCoord, yCoord) {
+        if (this.board[xCoord][yCoord]) {
             return true;
         } else {
             return false;
         }
     }
 
-    selectPiece(xCoord, yCoord){
+    selectPiece(xCoord, yCoord) {
         return this.board[xCoord][yCoord];
     }
 
-    clearField(xCoord, yCoord){
+    clearField(xCoord, yCoord) {
         this.board[xCoord][yCoord] = false;
     }
 
-    movePiece(piece){
+    movePiece(piece) {
         this.board[piece.posX][piece.posY] = piece;
     }
 }
-
-
