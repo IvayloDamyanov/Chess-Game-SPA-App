@@ -76,9 +76,24 @@ class Board {
         this.board[xCoord][yCoord] = false;
     }
 
-    movePiece(piece) {
-        this.board[piece.posX][piece.posY] = piece;
+    movePiece(board, piece) {
+        board[piece.posX][piece.posY] = piece;
+        this.checkUpgrade(board, piece);
+    }
+
+    checkUpgrade(board, piece){
+        if (piece.type == "Pawn"){
+            if (piece.color == "white" && piece.posY == 0){
+                this.pieceUpgrade(board, piece);
+            }
+            if (piece.color == "black" && piece.posY == 7){
+                this.pieceUpgrade(board, piece);
+            }
+        }
+    }
+
+    pieceUpgrade(board, piece){
+        let queen = new Queen(piece.color, piece.posX, piece.posY);
+        board[queen.posX][queen.posY] = queen;
     }
 }
-
-
