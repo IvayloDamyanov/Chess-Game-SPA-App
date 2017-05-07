@@ -113,6 +113,7 @@ class Pawn extends Piece{
         if(this.checkMove(newX, newY, this.moves)){
             this.posX = newX;
             this.posY = newY;
+            this.isMoved = true;
             return true;
         }
         return false;
@@ -199,12 +200,20 @@ class King extends Piece{
     }
 
     move(board, newX, newY){
-        // this.getMoves();
+        this.getMoves(board);
         if((typeof(board[newX][newY]) !== "undefined") && board[newX][newY].color == this.color){
             return false;
         }
 
         if(this.checkMove(newX, newY, this.moves)){
+            if (this.posX - newX == 2){
+                board[0][7].posX += 3;
+            } //castling - is Rook moved (bg: rokada)
+
+            if (this.posX - newX == -2){
+                board[7][7].posX += -2;
+            } //castling - is Rook moved (bg: rokada)
+
             this.posX = newX;
             this.posY = newY;
         }
@@ -213,16 +222,6 @@ class King extends Piece{
     }
 
     getMoves(board){
-        // this.moves = [
-        //     [1, -1],
-        //     [1, 0],
-        //     [1, 1],
-        //     [0, 1],
-        //     [-1, 1],
-        //     [-1, 0],
-        //     [-1, -1],
-        //     [0, -1]
-        // ];
         if (!this.isMoved 
             && !board[this.posX+1][this.posY]
             && !board[this.posX+2][this.posY]
