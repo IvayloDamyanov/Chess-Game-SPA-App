@@ -22,7 +22,7 @@ let userDatabase = (function() {
     function getCurrentUser() {
         return new Promise((resolve) => {
             auth.onAuthStateChanged(function(user) {
-                callback(user);
+                resolve(user);
             })
         });
     }

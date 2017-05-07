@@ -12,3 +12,15 @@ canvas {
 #game-canvas {
     z-index: 10
 }
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
