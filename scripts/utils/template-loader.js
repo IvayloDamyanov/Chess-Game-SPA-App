@@ -2,8 +2,8 @@ import Handlebars from 'handlebars';
 
 let loader = (() => {
     function getHTML(fileName) {
-        return new Promise(function(resolve, rejcet) {
-            let url = `/templates/html/$(fileName}.html`;
+        return new Promise(function(resolve, reject) {
+            let url = `/templates/html/${fileName}.html`;
 
             $.get(url, function(file) {
                     resolve(file);

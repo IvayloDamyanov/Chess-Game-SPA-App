@@ -14,12 +14,12 @@ System.config({
 
         // Library files
         'jquery': './../node_modules/jquery/dist/jquery.min.js',
-        'handlebars': './../node_modules/handlebars/handlebars.min.js',
+        'handlebars': './../node_modules/handlebars/dist/handlebars.min.js',
         'bootstrap': './../node_modules/bootstrap/dist/js/bootstrap.min.js',
         'sammy': './../node_modules/sammy/lib/sammy.js',
 
         // Firebase files
-        'firebase': './../node_modules/js/firebase.js',
+        'firebase': './../libs/js/firebase.js',
         'firebase-config': './config/firebase-config.js',
 
         // loaders

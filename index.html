@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Chess game</title>
-    <link rel="icon" type="image/gif" href="./images/background.png" />
+    <!--<link rel="icon" type="image/gif" href="./images/background.png" />-->
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./node_modules/toastr/build/toastr.css">
-    <script src="./scripts/main.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
     </div>
 
-    <!-- Should append images through script, at first try they were appended but not recognized, so not visualized -->
+    <!-- Should append images through script, at first try they were appended but not recognized, so not visualized 
     <div id="game-canvas-container" width="512px" height="512px" margin="0px auto" border="2px solid black">
         <canvas id="game-canvas" width="512px" height="512px"></canvas>
     </div>
@@ -39,22 +39,23 @@
     <img src="./images/whitePawn.png" id="whitePawn" style="display: none" alt="White Pawn">
     <img src="./images/blackPawn.png" id="blackPawn" style="display: none" alt="Black Pawn">
     <img src="./images/background.png" id="background" style="display: none" alt="Board">
-    <img src="./images/selection.png" id="selection" style="display: none" alt="Selection">
+    <img src="./images/selection.png" id="selection" style="display: none" alt="Selection">-->
 
-    <!--Maybe load them through main.js using Promise ... after imgs are appended-->
+    <!--Maybe load them through main.js using Promise ... after imgs are appended
     <script src="./scripts/drawBoard.js"></script>
     <script src="./scripts/pieces.js"></script>
     <script src="./scripts/board.js"></script>
-    <script src="./scripts/mouseCoords.js"></script>
+    <script src="./scripts/mouseCoords.js"></script>-->
 
     <!--Libraries-->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
 
-    <script src="./node_modules/toastr/toastr.js"></script>
     <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/toastr/toastr.js"></script>
 
     <!--Scripts-->
     <script type="text/javascript" src="./node_modules/systemjs/dist/system.js"></script>
