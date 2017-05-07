@@ -7,9 +7,9 @@ const navigator = (function() {
 
     function initialize() {
         let sammy = Sammy(function() {
-            this.before({}, userController.updateHeader);
+            //this.before({}, userController.updateHeader);
 
-            this.get('#/', userController.loadIntitalPage);
+            this.get('#/', userController.loadInitialPage);
 
             this.get('#/home', userController.loadHomePage);
 
