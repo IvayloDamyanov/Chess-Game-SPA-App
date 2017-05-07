@@ -9,6 +9,7 @@ System.config({
         'systemjs-babel-build': './../node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
 
         // App files
+        'navigator': './config/navigator.js',
         'main': './../scripts/main.js',
 
         // Library files
@@ -20,6 +21,17 @@ System.config({
         // Firebase files
         'firebase': './../node_modules/js/firebase.js',
         'firebase-config': './config/firebase-config.js',
+
+        // loaders
+        'template-loader': './../scripts/utils/template-loader.js',
+        'page-loader': './../scripts/utils/page-loader.js',
+
+        // controllers
+        'user-controller': './../scripts/controllers/user-controller.js',
+
+        // user model and database
+        'user-model': './../scripts/models/user-model.js',
+        'user-database': './../database/firebase-user-database.js',
     }
 });
 
