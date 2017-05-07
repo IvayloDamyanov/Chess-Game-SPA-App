@@ -50,7 +50,7 @@ let userController = (function() {
             .signIn(email, password)
             .then(_ => {
                 return new Promise(function(resolve, reject) {
-                    toastr.success(`Hi, welcome to our Chess Game Site`);
+                    toastr.success(`Hi, welcome to our Chess Game Site, you succesfully signed in!`);
                     sammy.redirect('#/home');
                     resolve();
                 })
@@ -67,7 +67,7 @@ let userController = (function() {
         userModel.signUp(email, password)
             .then(_ => {
                 return new Promise(function(resolve, reject) {
-                    toastr.success('You succesfully logged out!')
+                    toastr.success('You succesfully signed up!')
                     sammy.redirect('#/login');
                     resolve();
                 })
@@ -76,6 +76,32 @@ let userController = (function() {
                 toastr.error(err.message);
             })
     }
+
+    function signOut(sammy) {
+        userModel
+            .signOut()
+            .then(user => {
+                return new Promise(function(resolve, reject) {
+                        toastr.success('You succesfully have been signed out!');
+                        sammy.redirect('#/');
+                        resolve();
+                    })
+                    .catch(err => {
+                        toastr.error(err.message);
+                    });
+            })
+    }
+
+    return {
+        loadInitialPage,
+        loadHomePage,
+        loadSignupPage,
+        loadSignInPage,
+        signIn,
+        signUp,
+        signOut,
+        updateHeader
+    };
 }());
 
 export default userController;
