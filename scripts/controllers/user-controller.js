@@ -6,6 +6,8 @@ let userController = (function() {
     let $mainContainer = $('.main-container'),
         $headerContainer = $('.header-container');
 
+    const LOCALSTORAGE_REFRESH_TOKEN = 'refreshtoken';
+
     function updateHeader() {
         userDatabase.onStateChanged(user => {
             if (user) {
@@ -48,7 +50,8 @@ let userController = (function() {
 
         userModel
             .signIn(email, password)
-            .then(_ => {
+            .then(res => {
+                localStorage.setItem(LOCALSTORAGE_REFRESH_TOKEN, res.refreshToken);
                 return new Promise(function(resolve, reject) {
                     toastr.success(`Hi, welcome to our Chess Game Site, you succesfully signed in!`);
                     sammy.redirect('#/home');
@@ -81,6 +84,7 @@ let userController = (function() {
         userModel
             .signOut()
             .then(user => {
+                localStorage.removeItem(LOCALSTORAGE_REFRESH_TOKEN);
                 return new Promise(function(resolve, reject) {
                         toastr.success('You succesfully have been signed out!');
                         sammy.redirect('#/');

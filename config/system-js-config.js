@@ -28,6 +28,7 @@ System.config({
 
         // controllers
         'user-controller': './../scripts/controllers/user-controller.js',
+        'user-settings': './../scripts/controllers/user-settings.js',
 
         // user model and database
         'user-model': './../scripts/models/user-model.js',

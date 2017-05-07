@@ -1,5 +1,6 @@
 import Sammy from 'sammy';
 import userController from 'user-controller';
+import userSettings from 'user-settings';
 import pageLoader from 'page-loader';
 
 const navigator = (function() {
@@ -18,6 +19,10 @@ const navigator = (function() {
             this.get('#/login', userController.loadSignInPage);
 
             this.get('#/logout', userController.signOut);
+
+            this.get('#/home/settings', userSettings.loadSettingsPage);
+
+            this.post('#/home/settings', userSettings.updateUserProfile);
 
             this.post('#/signup', userController.signUp);
 
