@@ -159,7 +159,8 @@ class Pawn extends Piece{
 class King extends Piece{
     constructor(color, posX, posY){
         super(color, posX, posY);
-            this.moves = [
+            this.moves = [];
+            this.standartMoves = [
                 [1, -1],
                 [1, 0],
                 [1, 1],
@@ -216,12 +217,14 @@ class King extends Piece{
 
             this.posX = newX;
             this.posY = newY;
+            this.isMoved = true;
+            return true;
         }
-        this.isMoved = true;
-        return true;
+        return false;
     }
 
     getMoves(board){
+        this.moves = this.standartMoves;
         if (!this.isMoved){
             if (!board[this.posX+1][this.posY]
                 && !board[this.posX+2][this.posY]
