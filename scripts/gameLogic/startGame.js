@@ -1,4 +1,4 @@
-$(window).on('keypress', function () {
+$(window).ready(function () {
 	const CANVAS_SIZE = 512;
 	
 	let gameBoard = new Board();	
