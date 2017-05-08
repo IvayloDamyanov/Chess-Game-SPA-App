@@ -10,6 +10,10 @@ let userSettings = (function() {
         return pageLoader.loadPage('user-settings', $mainContainer);
     }
 
+    function loadHelpSetupPage() {
+        return pageLoader.loadPage('help', $mainContainer);
+    }
+
     // todo: fix this function
     function updateUserProfile() {
         let user = firebaseModule.auth().currentUser;
@@ -30,6 +34,7 @@ let userSettings = (function() {
 
     return {
         loadSettingsPage,
+        loadHelpSetupPage,
         updateUserProfile,
         getUser
     };

@@ -9,9 +9,9 @@ let gameController = (function() {
     }
 
     // Not working correctly
-    /*function loadScript() {
+    /*/function loadScript() {
         $('.game-start').on('click', function() {
-            $.getScript('./../gameLogic/startGame.js', function(data, textStatus, jqxhr) {});
+            $.getScript('./../gameLogic/startGame.js', function() {});
         });
     }*/
 

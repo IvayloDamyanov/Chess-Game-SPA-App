@@ -25,9 +25,11 @@ const navigator = (function() {
 
             this.get('#/home/user', userSettings.getUser);
 
+            //this.get('#/home/game', gameController.loadScript);
+
             this.get('#/home/game', gameController.loadGamePage);
 
-            //this.get('#/home/game', gameController.loadScript); TODO FIX IT
+            this.get('#/home/help', userSettings.loadHelpSetupPage);
 
             //this.post('#/home/settings', userSettings.updateUserProfile);
 
