@@ -2,15 +2,19 @@
     width: 512px;
     height: 512px;
     margin: 0px auto;
-    border: 2px solid black;
-}
-
-canvas {
-    position: absolute;
+    z-index: 10;
 }
 
 #game-canvas {
-    z-index: 10
+    border: 2px solid black;
+}
+
+/*canvas {
+    position: absolute;
+}*/
+
+#game-canvas {
+    z-index: 100;
 }
 
 h1 {
