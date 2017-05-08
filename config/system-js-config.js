@@ -40,7 +40,7 @@ System.config({
         'mouseCoors': './../scripts/mouseCoords.js',
         'board': './../scripts/board.js',
         'drawBoard': './../scripts/drawBoard.js',
-        'player': './../scripts/player.js'
+        'player': './../scripts/player.js',
     }
 });
 

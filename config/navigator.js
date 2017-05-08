@@ -27,6 +27,8 @@ const navigator = (function() {
 
             this.get('#/home/game', gameController.loadGamePage);
 
+            //this.get('#/home/game', gameController.loadScript); TODO FIX IT
+
             //this.post('#/home/settings', userSettings.updateUserProfile);
 
             this.post('#/signup', userController.signUp);
