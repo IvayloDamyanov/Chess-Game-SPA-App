@@ -22,7 +22,9 @@ const navigator = (function() {
 
             this.get('#/home/settings', userSettings.loadSettingsPage);
 
-            this.post('#/home/settings', userSettings.updateUserProfile);
+            this.get('#/home/user', userSettings.getUser);
+
+            //this.post('#/home/settings', userSettings.updateUserProfile);
 
             this.post('#/signup', userController.signUp);
 

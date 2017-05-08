@@ -1,6 +1,7 @@
 import 'jquery';
 import userDatabase from 'user-database';
 import pageLoader from 'page-loader';
+import * as firebase from "firebase";
 
 let userSettings = (function() {
     let $mainContainer = $('.main-container');
@@ -11,28 +12,26 @@ let userSettings = (function() {
 
     // todo: fix this function
     function updateUserProfile() {
-        let email = $('#email-for-user').val(),
-            password = $('#password-for-user').val();
+        let user = firebaseModule.auth().currentUser;
 
-        return userDatabase.getCurrentUser()
-            .then(user => {
-                if (user) {
-                    user.updateProfile({
-                        email: email,
-                        password: password
-                    }).then(function() {
-                        toastr.success('Succesfully changed email and password');
-                        sammy.redirect('#/home');
-                    }, function(err) {
-                        toastr.error(err.message);
-                    });
-                }
-            });
+        $('#button-click').click(function() {
+            let email = $('#email-for-user').val(),
+                password = $('#password-for-user').val();
+        })
+    }
+
+    function getUser() {
+        let firebaseUser = firebase.database().ref().child('User');
+        firebaseUser.on('value', currentUser => {
+            let user = currentUser.val();
+            return pageLoader.loadTemplatePage('current-user', user, $mainContainer);
+        });
     }
 
     return {
         loadSettingsPage,
-        updateUserProfile
+        updateUserProfile,
+        getUser
     };
 }());
 
