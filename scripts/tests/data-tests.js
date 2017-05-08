@@ -187,5 +187,44 @@ describe('Chess Logic Tests', () => {
                 expect(result).to.equal(false);
             });
         });
+
+        describe('Knight Tests', () => {
+            it('expect Knight to be constructed properly', () => {
+                const knight = new Knight("black", 1, 0);
+                const typeOfFigure = "Knight";
+                const moves = [
+                    [-1, -2],
+                    [-2, -1],
+                    [-2, 1],
+                    [-1, 2],
+                    [1, 2],
+                    [2, 1],
+                    [2, -1],
+                    [1, -2]
+                ];
+
+                expect(knight.type).to.equal(typeOfFigure);
+                expect(knight.moves).to.deep.equal(moves);
+            });
+
+            it('expect Knight move method to change posX and posY', () => {
+                const knight = new Knight("black", 1, 0);
+                const gameBoard = new Board();
+
+                const result = knight.move(gameBoard.board, 2, 2);
+
+                expect(knight.posX).to.equal(2);
+                expect(knight.posY).to.equal(2);
+            });
+
+            it('expect Knight move method to return true', () => {
+                const knight = new Knight("black", 1, 0);
+                const gameBoard = new Board();
+
+                const result = knight.move(gameBoard.board, 2, 2);
+
+                expect(result).to.equal(true);
+            });
+        });
     });
 });
