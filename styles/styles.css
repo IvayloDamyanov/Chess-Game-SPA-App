@@ -1,3 +1,41 @@
+html {
+    background: #c9e3c9;
+    z-index:0;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.main-container{
+    background: #c9e3c9;
+    padding-top: 3%;
+    padding-left: 3%;
+    z-index:0;
+}
+
+.navbar{
+    margin-bottom: 0px!important;
+}
+
+a.navbar-brand:hover {
+    background-color: yellow;
+    z-index: 15;
+}
+
+.user-data-container{
+    position: relative;
+    width: 30%;
+    padding: 1%;
+    height: 450px;
+    background: linear-gradient(135deg, rgba(240,242,138,1) 0%,rgba(240,242,138,0) 50%,rgba(240,242,138,0) 100%);
+}
+
+.user-data{
+    opacity: 1;
+}
+
 #game-canvas-container {
     width: 512px;
     height: 512px;
@@ -9,22 +47,50 @@
     border: 2px solid black;
 }
 
-/*canvas {
-    position: absolute;
-}*/
 
 #game-canvas {
     z-index: 100;
 }
 
-h1 {
-    text-align: center;
+#footer {
+    position: fixed;
+    bottom: 5%;
+    left: 3%;
 }
 
-h3 {
-    text-align: center;
+a{
+    text-decoration: none;
 }
 
-div {
-    text-align: center;
+ul.social {
+    list-style-type: none;
+}
+.social i{
+    font-style: normal;
+}
+
+.social a:hover {
+    background-color: lightgreen;
+    text-decoration: none;
+}
+
+.help{
+    padding: 15px;
+}
+
+img{
+    z-index: 30;
+}
+
+p.info{
+    font-size: 14px;
+    width: 70%;
+    line-height: 1.5;
+}
+
+.home-img{
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    opacity: 0.3;
 }
