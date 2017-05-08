@@ -25,6 +25,8 @@ const navigator = (function() {
 
             this.get('#/home/settings/email', userSettings.loadSettingsEmailChange);
 
+            this.get('#/home/settings/password', userSettings.loadSettingsPasswordChange);
+
             this.get('#/home/user', userSettings.getUser);
 
             //this.get('#/home/game', gameController.loadScript);
@@ -34,6 +36,8 @@ const navigator = (function() {
             this.get('#/home/help', userSettings.loadHelpSetupPage);
 
             this.post('#/home/settings/email', userSettings.updateUserEmail);
+
+            this.post('#/home/settings/password', userSettings.updateUserPassword);
 
             this.post('#/signup', userController.signUp);
 

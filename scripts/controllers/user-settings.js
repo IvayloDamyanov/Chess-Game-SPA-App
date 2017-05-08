@@ -23,17 +23,28 @@ let userSettings = (function() {
         return pageLoader.loadPage('update-password', $mainContainer);
     }
 
-    // todo: fix this function
     function updateUserEmail(sammy) {
         let user = firebase.auth().currentUser;
-
-        console.log(sammy);
 
         let newEmail = sammy.params.email[0];
 
         user.updateEmail(newEmail)
             .then(function() {
                 toastr.success(`Succesfully changed user email!`);
+                sammy.redirect('#/home');
+            }, function(err) {
+                toastr.error(err.message);
+            });
+    }
+
+    function updateUserPassword(sammy) {
+        let user = firebase.auth().currentUser;
+
+        let newPassword = sammy.params.password[0];
+
+        user.updatePassword(newPassword)
+            .then(function() {
+                toastr.success(`Succesfully changed user password!`);
                 sammy.redirect('#/home');
             }, function(err) {
                 toastr.error(err.message);
@@ -54,6 +65,7 @@ let userSettings = (function() {
         loadSettingsEmailChange,
         loadSettingsPasswordChange,
         updateUserEmail,
+        updateUserPassword,
         getUser
     };
 }());
