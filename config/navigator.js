@@ -1,6 +1,7 @@
 import Sammy from 'sammy';
 import userController from 'user-controller';
 import userSettings from 'user-settings';
+import gameController from 'game-controller';
 import pageLoader from 'page-loader';
 
 const navigator = (function() {
@@ -23,6 +24,8 @@ const navigator = (function() {
             this.get('#/home/settings', userSettings.loadSettingsPage);
 
             this.get('#/home/user', userSettings.getUser);
+
+            this.get('#/home/game', gameController.loadGamePage);
 
             //this.post('#/home/settings', userSettings.updateUserProfile);
 

@@ -1,4 +1,6 @@
-function drawBoard(board, selectionCoords) {
+import { Board } from 'board';
+
+export function drawBoard(board, selectionCoords) {
     const $gameCanvas = $('#game-canvas');
     const POS_STEP = ($gameCanvas[0].clientWidth) / 8;
     const $gameCanvasContext = $gameCanvas[0].getContext('2d');

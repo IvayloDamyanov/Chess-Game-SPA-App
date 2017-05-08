@@ -1,4 +1,6 @@
-class Board {
+import { Pawn, Rook, Knight, Bishop, Queen, King } from 'pieces';
+
+export class Board {
     constructor() {
         this.board = [
             [],
@@ -56,7 +58,7 @@ class Board {
             new Queen("black", 3, 0),
             new King("black", 4, 0)
         ]
-        
+
         this.pieces.forEach((piece) => this.board[piece.posX][piece.posY] = piece);
     }
 
@@ -81,49 +83,49 @@ class Board {
         this.checkUpgrade(board, piece);
     }
 
-    checkUpgrade(board, piece){
-        if (piece.type == "Pawn"){
-            if (piece.color == "white" && piece.posY == 0){
+    checkUpgrade(board, piece) {
+        if (piece.type == "Pawn") {
+            if (piece.color == "white" && piece.posY == 0) {
                 this.pieceUpgrade(board, piece);
             }
-            if (piece.color == "black" && piece.posY == 7){
+            if (piece.color == "black" && piece.posY == 7) {
                 this.pieceUpgrade(board, piece);
             }
         }
     }
 
-    pieceUpgrade(board, piece){
+    pieceUpgrade(board, piece) {
         let queen = new Queen(piece.color, piece.posX, piece.posY);
         board[queen.posX][queen.posY] = queen;
     }
 
-    checkGameOver(board, player1, player2){
+    checkGameOver(board, player1, player2) {
         const boardSize = 7;
         let hasWhiteKing = false;
         let hasBlackKing = false;
-        for (let row = 0; row <= boardSize; row += 1){
-            for (let col = 0; col <= boardSize; col += 1){
-                if (board[row][col] && board[row][col].type == "King"){
-                    if (board[row][col].color == "white"){
+        for (let row = 0; row <= boardSize; row += 1) {
+            for (let col = 0; col <= boardSize; col += 1) {
+                if (board[row][col] && board[row][col].type == "King") {
+                    if (board[row][col].color == "white") {
                         hasWhiteKing = true;
                     }
 
-                    if (board[row][col].color == "black"){
+                    if (board[row][col].color == "black") {
                         hasBlackKing = true;
                     }
                 }
 
-                if (hasWhiteKing && hasBlackKing){
+                if (hasWhiteKing && hasBlackKing) {
                     return false;
                 }
             }
         }
 
-        if (!hasBlackKing){
+        if (!hasBlackKing) {
             return player1;
         }
 
-        if (!hasWhiteKing){
+        if (!hasWhiteKing) {
             return player2;
         }
 

@@ -29,10 +29,18 @@ System.config({
         // controllers
         'user-controller': './../scripts/controllers/user-controller.js',
         'user-settings': './../scripts/controllers/user-settings.js',
+        'game-controller': './../scripts/controllers/game-controller.js',
 
         // user model and database
         'user-model': './../scripts/models/user-model.js',
         'user-database': './../database/firebase-user-database.js',
+
+        // game logic files
+        'pieces': './../scripts/pieces.js',
+        'mouseCoors': './../scripts/mouseCoords.js',
+        'board': './../scripts/board.js',
+        'drawBoard': './../scripts/drawBoard.js',
+        'player': './../scripts/player.js'
     }
 });
 
