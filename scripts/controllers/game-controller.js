@@ -16,9 +16,8 @@ let gameController = (function() {
     }*/
 
     return {
-        loadGamePage,
-        //loadScript
-    }
+        loadGamePage
+    };
 }());
 
 export default gameController;

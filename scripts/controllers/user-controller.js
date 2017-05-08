@@ -40,7 +40,7 @@ let userController = (function() {
     function loadHomePage() {
         return pageLoader.loadPage('header', $headerContainer)
             .then(_ => {
-                $mainContainer.html('');
+                return pageLoader.loadPage('home', $mainContainer);
             });
     }
 
@@ -70,7 +70,7 @@ let userController = (function() {
         userModel.signUp(email, password)
             .then(_ => {
                 return new Promise(function(resolve, reject) {
-                    toastr.success('You succesfully signed up!')
+                    toastr.success('You succesfully signed up!');
                     sammy.redirect('#/login');
                     resolve();
                 })
