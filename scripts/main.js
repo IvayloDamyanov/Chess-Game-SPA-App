@@ -8,6 +8,7 @@ import pageLoader from 'page-loader';
 
     $(document).ready(function() {
         pageLoader.loadPage('header', $('.header-container'));
+        pageLoader.loadPage('footer', $('.footer-container'));
     });
 
 }());
