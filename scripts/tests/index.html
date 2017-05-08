@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chess Game Tests</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./../../node_modules/mocha/mocha.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="mocha"></div>
+
+    <!-- Testing -->
+    <script src="./../../node_modules/mocha/mocha.js"></script>
+    <script src="./../../node_modules/chai/chai.js"></script>
+    <script src="./../../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="./../../node_modules/sinon-chai/lib/sinon-chai.js"></script>
+
+    <!-- Unit tests -->
+    <script>
+        mocha.setup('bdd');
+        const {
+            expect
+        } = chai;
+    </script>
+
+    <script src="data-tests.js"></script>
+
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
