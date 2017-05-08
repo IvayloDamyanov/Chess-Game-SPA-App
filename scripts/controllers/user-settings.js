@@ -2,6 +2,7 @@ import 'jquery';
 import userDatabase from 'user-database';
 import pageLoader from 'page-loader';
 import * as firebase from "firebase";
+import firebaseModule from 'firebase-config';
 
 let userSettings = (function() {
     let $mainContainer = $('.main-container');
@@ -14,14 +15,29 @@ let userSettings = (function() {
         return pageLoader.loadPage('help', $mainContainer);
     }
 
-    // todo: fix this function
-    function updateUserProfile() {
-        let user = firebaseModule.auth().currentUser;
+    function loadSettingsEmailChange() {
+        return pageLoader.loadPage('update-email', $mainContainer);
+    }
 
-        $('#button-click').click(function() {
-            let email = $('#email-for-user').val(),
-                password = $('#password-for-user').val();
-        })
+    function loadSettingsPasswordChange() {
+        return pageLoader.loadPage('update-password', $mainContainer);
+    }
+
+    // todo: fix this function
+    function updateUserEmail(sammy) {
+        let user = firebase.auth().currentUser;
+
+        console.log(sammy);
+
+        let newEmail = sammy.params.email[0];
+
+        user.updateEmail(newEmail)
+            .then(function() {
+                toastr.success(`Succesfully changed user email!`);
+                sammy.redirect('#/home');
+            }, function(err) {
+                toastr.error(err.message);
+            });
     }
 
     function getUser() {
@@ -35,7 +51,9 @@ let userSettings = (function() {
     return {
         loadSettingsPage,
         loadHelpSetupPage,
-        updateUserProfile,
+        loadSettingsEmailChange,
+        loadSettingsPasswordChange,
+        updateUserEmail,
         getUser
     };
 }());

@@ -48,6 +48,8 @@ let userController = (function() {
         let email = sammy.params.email,
             password = sammy.params.password;
 
+        console.log(sammy);
+
         userModel
             .signIn(email, password)
             .then(res => {

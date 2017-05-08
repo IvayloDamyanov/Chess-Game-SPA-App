@@ -23,6 +23,8 @@ const navigator = (function() {
 
             this.get('#/home/settings', userSettings.loadSettingsPage);
 
+            this.get('#/home/settings/email', userSettings.loadSettingsEmailChange);
+
             this.get('#/home/user', userSettings.getUser);
 
             //this.get('#/home/game', gameController.loadScript);
@@ -31,7 +33,7 @@ const navigator = (function() {
 
             this.get('#/home/help', userSettings.loadHelpSetupPage);
 
-            //this.post('#/home/settings', userSettings.updateUserProfile);
+            this.post('#/home/settings/email', userSettings.updateUserEmail);
 
             this.post('#/signup', userController.signUp);
 
