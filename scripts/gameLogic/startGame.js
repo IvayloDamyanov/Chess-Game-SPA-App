@@ -7,9 +7,10 @@ window.addEventListener('load', function () {
 	
 	var $canvas = $('#game-canvas');
 	let selectedPiece;
-	let player1 = new Player("white", "Pesho");
-	let player2 = new Player("black", "Tosho");
+	let player1 = new Player("white", "Whitey");
+	let player2 = new Player("black", "Blacky");
 	let player = player1;
+	let winner = false;
 
     $canvas.on("click", function(evt) {
         let mousePos = getMousePos($canvas, evt); //mouse position in pixels
@@ -23,6 +24,10 @@ window.addEventListener('load', function () {
 				player = swapPlayer(player, player1, player2);
 			}
 			selectedPiece = false;
+			winner = gameBoard.checkGameOver(gameBoard.board, player1, player2);
+			if(winner){
+				alert(winner.name + " wins");
+			}
 		} else if (gameBoard.checkField(selectionCoords.x, selectionCoords.y)){
 			selectedPiece = gameBoard.selectPiece(selectionCoords.x, selectionCoords.y);
 		}
