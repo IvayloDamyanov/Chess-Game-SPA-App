@@ -96,4 +96,37 @@ class Board {
         let queen = new Queen(piece.color, piece.posX, piece.posY);
         board[queen.posX][queen.posY] = queen;
     }
+
+    checkGameOver(board, player1, player2){
+        const boardSize = 7;
+        let hasWhiteKing = false;
+        let hasBlackKing = false;
+        for (let row = 0; row <= boardSize; row += 1){
+            for (let col = 0; col <= boardSize; col += 1){
+                if (board[row][col] && board[row][col].type == "King"){
+                    if (board[row][col].color == "white"){
+                        hasWhiteKing = true;
+                    }
+
+                    if (board[row][col].color == "black"){
+                        hasBlackKing = true;
+                    }
+                }
+
+                if (hasWhiteKing && hasBlackKing){
+                    return false;
+                }
+            }
+        }
+
+        if (!hasBlackKing){
+            return player1;
+        }
+
+        if (!hasWhiteKing){
+            return player2;
+        }
+
+        return false;
+    }
 }
