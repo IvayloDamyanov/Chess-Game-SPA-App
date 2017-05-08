@@ -217,27 +217,25 @@ class King extends Piece{
             this.posX = newX;
             this.posY = newY;
         }
-        
+        this.isMoved = true;
         return true;
     }
 
     getMoves(board){
-        if (!this.isMoved 
-            && !board[this.posX+1][this.posY]
-            && !board[this.posX+2][this.posY]
-            && board[this.posX+3][this.posY].type == "Rook"
-            && !board[this.posX+3][this.posY].isMoved
-            ){
-            this.moves.push([2, 0]);
-        }
-        if (!this.isMoved 
-            && !board[this.posX-1][this.posY]
-            && !board[this.posX-2][this.posY]
-            && !board[this.posX-3][this.posY]
-            && board[this.posX-4][this.posY].type == "Rook"
-            && !board[this.posX-4][this.posY].isMoved
-            ){
-            this.moves.push([-2, 0]);
+        if (!this.isMoved){
+            if (!board[this.posX+1][this.posY]
+                && !board[this.posX+2][this.posY]
+                && board[this.posX+3][this.posY].type == "Rook"
+                && !board[this.posX+3][this.posY].isMoved) {
+                    this.moves.push([2, 0]);
+            }
+            if (!board[this.posX-1][this.posY]
+                && !board[this.posX-2][this.posY]
+                && !board[this.posX-3][this.posY]
+                && board[this.posX-4][this.posY].type == "Rook"
+                && !board[this.posX-4][this.posY].isMoved) {
+                    this.moves.push([-2, 0]);
+            }
         }
     }
 }
