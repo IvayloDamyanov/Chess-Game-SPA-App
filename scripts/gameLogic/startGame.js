@@ -1,10 +1,11 @@
-import mouseCord from 'mouseCoors';
+import 'jquery';
+import { mouseCord } from 'mouseCoors';
 import { drawBoard } from 'drawBoard';
 import { Board } from 'board';
 import { Pawn, Rook, Knight, Bishop, Queen, King } from 'pieces';
 import { Player, swapPlayer } from 'player';
 
-window.addEventListener('load', function() {
+$('#game-canvas-container').addEventListener('click', function() {
     const CANVAS_SIZE = 512;
 
     let gameBoard = new Board;
