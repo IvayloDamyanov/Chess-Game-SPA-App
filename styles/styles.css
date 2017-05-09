@@ -28,7 +28,9 @@ a.navbar-brand:hover {
     position: relative;
     width: 30%;
     padding: 1%;
+    padding-left: 1.2%;
     height: 450px;
+    border-radius: 15px;
     background: linear-gradient(135deg, rgba(240,242,138,1) 0%,rgba(240,242,138,0) 50%,rgba(240,242,138,0) 100%);
 }
 
@@ -92,5 +94,5 @@ p.info{
     position: fixed;
     bottom: 5%;
     right: 3%;
-    opacity: 0.3;
+    opacity: 0.5;
 }
