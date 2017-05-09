@@ -292,5 +292,38 @@ describe('Chess Logic Tests', () => {
                 expect(result).to.equal(false);
             });
         });
+
+        describe('Queen Tests', () => {
+            it('expect Queen to be constructed properly', () => {
+                const queen = new Queen("black", 3, 0);
+                const typeOfFigure = "Queen";
+                const moves = [];
+
+                expect(queen.posX).to.equal(3);
+                expect(queen.posY).to.equal(0);
+                expect(queen.type).to.equal(typeOfFigure);
+                expect(queen.moves).to.deep.equal(moves);
+            });
+
+            it('expect move method to change posX and posY and to return true', () => {
+                const queen = new Queen("black", 3, 0);
+                const gameBoard = new Board();
+
+                const result = queen.move(gameBoard.board, 4, 0);
+
+                expect(queen.posX).to.equal(4);
+                expect(queen.posY).to.equal(0);
+                expect(result).to.equal(true);
+            });
+
+            it('expect move method to return false', () => {
+                const queen = new Queen("black", 3, 0);
+                const gameBoard = new Board();
+
+                const result = queen.move(gameBoard.board, 5, 1);
+
+                expect(result).to.equal(false);
+            });
+        });
     });
 });
