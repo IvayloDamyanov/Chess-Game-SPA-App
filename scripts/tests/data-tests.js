@@ -226,5 +226,37 @@ describe('Chess Logic Tests', () => {
                 expect(result).to.equal(true);
             });
         });
+
+        describe('Bishop Tests', () => {
+            it('expect Bishop to be constructed properly', () => {
+                const bishop = new Bishop("black", 2, 0);
+                const typeOfFigure = "Bishop";
+                const moves = [];
+
+                expect(bishop.posX).to.equal(2);
+                expect(bishop.posY).to.equal(0)
+                expect(bishop.moves).to.deep.equal(moves);
+            });
+
+            it('expect move method to change posX and posY and to return true', () => {
+                const bishop = new Bishop("black", 2, 0);
+                const gameBoard = new Board();
+
+                const result = bishop.move(gameBoard.board, 3, 1);
+
+                expect(bishop.posX).to.equal(3);
+                expect(bishop.posY).to.equal(1);
+                expect(result).to.equal(true);
+            });
+
+            it('expect move method to return false', () => {
+                const bishop = new Bishop("black", 2, 0);
+                const gameBoard = new Board();
+
+                const result = bishop.move(gameBoard.board, 10, 1);
+
+                expect(result).to.equal(false);
+            });
+        });
     });
 });
