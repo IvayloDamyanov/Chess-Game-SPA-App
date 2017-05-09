@@ -72,8 +72,8 @@ class Board {
         return this.board[xCoord][yCoord];
     }
 
-    clearField(xCoord, yCoord) {
-        this.board[xCoord][yCoord] = false;
+    clearField(board, xCoord, yCoord) {
+        board[xCoord][yCoord] = false;
     }
 
     movePiece(board, piece) {

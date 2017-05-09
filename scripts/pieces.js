@@ -208,11 +208,17 @@ class King extends Piece{
 
         if(this.checkMove(newX, newY, this.moves)){
             if (this.posX - newX == 2){
-                board[0][7].posX += 3;
+                let piece = board[0][this.posY];
+                board[piece.posX][piece.posY] = false;
+                piece.posX += 3;
+                board[piece.posX][piece.posY] = piece;
             } //castling - is Rook moved (bg: rokada)
 
             if (this.posX - newX == -2){
-                board[7][7].posX += -2;
+                let piece = board[7][this.posY];
+                board[piece.posX][piece.posY] = false;
+                piece.posX += -2;
+                board[piece.posX][piece.posY] = piece;
             } //castling - is Rook moved (bg: rokada)
 
             this.posX = newX;

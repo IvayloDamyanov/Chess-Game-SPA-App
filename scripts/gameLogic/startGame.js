@@ -28,7 +28,7 @@ $(window).ready(function () {
 				let oldX = selectedPiece.posX;
 				let oldY = selectedPiece.posY;
 				if (selectedPiece.move(gameBoard.board, selectionCoords.x, selectionCoords.y)){
-					gameBoard.clearField(oldX, oldY);
+					gameBoard.clearField(gameBoard.board, oldX, oldY);
 					gameBoard.movePiece(gameBoard.board, selectedPiece);
 					player = swapPlayer(player, player1, player2);
 				}
