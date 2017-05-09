@@ -258,5 +258,39 @@ describe('Chess Logic Tests', () => {
                 expect(result).to.equal(false);
             });
         });
+
+        describe('Rook Tests', () => {
+            it('expect to construct Rook properly', () => {
+                const rook = new Rook("white", 7, 7);
+                const typeOfFigure = "Rook";
+                const moves = [];
+
+                expect(rook.posX).to.equal(7);
+                expect(rook.posY).to.equal(7);
+                expect(rook.type).to.equal(typeOfFigure);
+                expect(rook.isMoved).to.equal(false);
+                expect(rook.moves).to.deep.equal(moves);
+            });
+
+            it('expect move method to change posX and PosY and return true', () => {
+                const rook = new Rook("black", 7, 0);
+                const gameBoard = new Board();
+
+                const result = rook.move(gameBoard.board, 7, 7);
+
+                expect(rook.posX).to.equal(7);
+                expect(rook.posY).to.equal(7);
+                expect(result).to.equal(true);
+            });
+
+            it('expect move method to return false', () => {
+                const rook = new Rook("black", 7, 0);
+                const gameBoard = new Board();
+
+                const result = rook.move(gameBoard.board, 1, 7);
+
+                expect(result).to.equal(false);
+            });
+        });
     });
 });
